@@ -1,82 +1,83 @@
 /* -----------------------------------------
 
-	 æœ¬æ–‡ä»¶ä¸éœ€è¦æäº¤ã€ä¸å…è®¸æ”¹åŠ¨
+     ±¾ÎÄ¼ş²»ĞèÒªÌá½»¡¢²»ÔÊĞí¸Ä¶¯
 
    ----------------------------------------- */
 #pragma once
 
-/* å®šä¹‰é¢œè‰²ï¼ˆç”¨å®å®šä¹‰å–ä»£æ•°å­—ï¼Œæ–¹ä¾¿è®°å¿†ï¼‰ */
-#define COLOR_BLACK 0	 // é»‘
-#define COLOR_BLUE 1	 // è“
-#define COLOR_GREEN 2	 // ç»¿
-#define COLOR_CYAN 3	 // é’
-#define COLOR_RED 4		 // çº¢
-#define COLOR_PINK 5	 // ç²‰
-#define COLOR_YELLOW 6	 // é»„
-#define COLOR_WHITE 7	 // ç™½
-#define COLOR_HBLACK 8	 // äº®é»‘
-#define COLOR_HBLUE 9	 // äº®è“
-#define COLOR_HGREEN 10	 // äº®ç»¿
-#define COLOR_HCYAN 11	 // äº®é’
-#define COLOR_HRED 12	 // äº®çº¢
-#define COLOR_HPINK 13	 // äº®ç²‰
-#define COLOR_HYELLOW 14 // äº®é»„
-#define COLOR_HWHITE 15	 // äº®ç™½
+/* ¶¨ÒåÑÕÉ«£¨ÓÃºê¶¨ÒåÈ¡´úÊı×Ö£¬·½±ã¼ÇÒä£© */
+#define COLOR_BLACK		0	//ºÚ
+#define COLOR_BLUE		1	//À¶
+#define COLOR_GREEN		2	//ÂÌ
+#define COLOR_CYAN		3	//Çà
+#define COLOR_RED		4	//ºì
+#define COLOR_PINK		5	//·Û
+#define COLOR_YELLOW	6	//»Æ
+#define COLOR_WHITE		7	//°×
+#define COLOR_HBLACK	8	//ÁÁºÚ
+#define COLOR_HBLUE		9	//ÁÁÀ¶
+#define COLOR_HGREEN	10	//ÁÁÂÌ
+#define COLOR_HCYAN		11	//ÁÁÇà
+#define COLOR_HRED		12	//ÁÁºì
+#define COLOR_HPINK		13	//ÁÁ·Û
+#define COLOR_HYELLOW	14	//ÁÁ»Æ
+#define COLOR_HWHITE	15	//ÁÁ°×
 
-/* å®šä¹‰é¼ æ ‡é”®ç›˜æ“ä½œç±»å‹ */
-#define CCT_MOUSE_EVENT 0
-#define CCT_KEYBOARD_EVENT 1
+/* ¶¨ÒåÊó±ê¼üÅÌ²Ù×÷ÀàĞÍ */
+#define CCT_MOUSE_EVENT				0
+#define CCT_KEYBOARD_EVENT			1
 
-/* å®šä¹‰å››ä¸ªæ–¹å‘é”®ï¼ˆä¸ºä»€ä¹ˆæ˜¯è¿™äº›å€¼ï¼Ÿæƒ³æƒ³ç®­å¤´é”®ç§»åŠ¨å…‰æ ‡çš„ä½œä¸šï¼‰ */
-#define KB_ARROW_UP 72
-#define KB_ARROW_DOWN 80
-#define KB_ARROW_LEFT 75
-#define KB_ARROW_RIGHT 77
+/* ¶¨ÒåËÄ¸ö·½Ïò¼ü£¨ÎªÊ²Ã´ÊÇÕâĞ©Öµ£¿ÏëÏë¼ıÍ·¼üÒÆ¶¯¹â±êµÄ×÷Òµ£© */
+#define KB_ARROW_UP					72
+#define KB_ARROW_DOWN				80
+#define KB_ARROW_LEFT				75
+#define KB_ARROW_RIGHT				77
 
-/* å®šä¹‰é¼ æ ‡çš„æ“ä½œ */
-#define MOUSE_NO_ACTION 0x0000				   // æ— é¼ æ ‡æ“ä½œ
-#define MOUSE_ONLY_MOVED 0x0001				   // é¼ æ ‡ç§»åŠ¨
-#define MOUSE_LEFT_BUTTON_CLICK 0x0002		   // æŒ‰ä¸‹å·¦é”®
-#define MOUSE_LEFT_BUTTON_DOUBLE_CLICK 0x0004  // åŒå‡»å·¦é”®
-#define MOUSE_RIGHT_BUTTON_CLICK 0x0008		   // æŒ‰ä¸‹å³é”®
-#define MOUSE_RIGHT_BUTTON_DOUBLE_CLICK 0x0010 // åŒå‡»å³é”®
-#define MOUSE_LEFTRIGHT_BUTTON_CLICK 0x0020	   // åŒæ—¶æŒ‰ä¸‹å·¦å³é”®
-#define MOUSE_WHEEL_CLICK 0x0040			   // æ»šè½®è¢«æŒ‰ä¸‹
-#define MOUSE_WHEEL_MOVED_UP 0x0080			   // æ»šè½®å‘ä¸Šç§»åŠ¨
-#define MOUSE_WHEEL_MOVED_DOWN 0x0100		   // æ»šè½®å‘ä¸‹ç§»åŠ¨
+/* ¶¨ÒåÊó±êµÄ²Ù×÷ */
+#define MOUSE_NO_ACTION						0x0000	//ÎŞÊó±ê²Ù×÷
+#define MOUSE_ONLY_MOVED					0x0001	//Êó±êÒÆ¶¯
+#define MOUSE_LEFT_BUTTON_CLICK				0x0002	//°´ÏÂ×ó¼ü
+#define MOUSE_LEFT_BUTTON_DOUBLE_CLICK		0x0004	//Ë«»÷×ó¼ü
+#define MOUSE_RIGHT_BUTTON_CLICK			0x0008	//°´ÏÂÓÒ¼ü
+#define MOUSE_RIGHT_BUTTON_DOUBLE_CLICK	0x0010	//Ë«»÷ÓÒ¼ü
+#define MOUSE_LEFTRIGHT_BUTTON_CLICK		0x0020	//Í¬Ê±°´ÏÂ×óÓÒ¼ü
+#define MOUSE_WHEEL_CLICK					0x0040	//¹öÂÖ±»°´ÏÂ
+#define MOUSE_WHEEL_MOVED_UP				0x0080	//¹öÂÖÏòÉÏÒÆ¶¯
+#define MOUSE_WHEEL_MOVED_DOWN				0x0100	//¹öÂÖÏòÏÂÒÆ¶¯
 
-/* å®šä¹‰å…‰æ ‡çš„å½¢æ€ */
-#define CURSOR_VISIBLE_FULL 0	// å…‰æ ‡æ˜¾ç¤ºï¼Œå…¨é«˜è‰²å—
-#define CURSOR_VISIBLE_HALF 1	// å…‰æ ‡æ˜¾ç¤ºï¼ŒåŠé«˜è‰²å—
-#define CURSOR_VISIBLE_NORMAL 2 // å…‰æ ‡æ˜¾ç¤ºï¼Œæ¨ªçº¿ï¼ˆç¼ºçœä¸ºæ­¤æ–¹å¼ï¼‰
-#define CURSOR_INVISIBLE 3		// å…‰æ ‡ä¸æ˜¾ç¤º
+/* ¶¨Òå¹â±êµÄĞÎÌ¬ */
+#define CURSOR_VISIBLE_FULL					0	//¹â±êÏÔÊ¾£¬È«¸ßÉ«¿é
+#define CURSOR_VISIBLE_HALF					1	//¹â±êÏÔÊ¾£¬°ë¸ßÉ«¿é
+#define CURSOR_VISIBLE_NORMAL				2	//¹â±êÏÔÊ¾£¬ºáÏß£¨È±Ê¡Îª´Ë·½Ê½£©
+#define CURSOR_INVISIBLE					3	//¹â±ê²»ÏÔÊ¾
 
-/* cmd_console_tools.cppä¸‹çš„å‡½æ•°å£°æ˜ */
+/* cmd_console_tools.cppÏÂµÄº¯ÊıÉùÃ÷ */
 
-/* æ¸…å±ã€é¢œè‰²è®¾ç½®ã€å…‰æ ‡è®¾ç½®ã€å­—ç¬¦/å­—ç¬¦ä¸²æ˜¾ç¤º */
-void cct_cls(void);
-void cct_setcolor(const int bg_color = COLOR_BLACK, const int fg_color = COLOR_WHITE);
-void cct_getcolor(int &bg_color, int &fg_color);
-void cct_gotoxy(const int X, const int Y);
-void cct_getxy(int &x, int &y);
+/* ÇåÆÁ¡¢ÑÕÉ«ÉèÖÃ¡¢¹â±êÉèÖÃ¡¢×Ö·û/×Ö·û´®ÏÔÊ¾ */
+void cct_cls      (void);
+void cct_setcolor (const int bg_color = COLOR_BLACK, const int fg_color = COLOR_WHITE);
+void cct_getcolor (int &bg_color, int &fg_color);
+void cct_gotoxy   (const int X, const int Y);
+void cct_getxy    (int &x, int &y);
 void cct_setcursor(const int options);
-void cct_showch(const int X, const int Y, const char ch, const int bg_color = COLOR_BLACK, const int fg_color = COLOR_WHITE, const int rpt = 1);
-void cct_showstr(const int X, const int Y, const char *str, const int bg_color = COLOR_BLACK, const int fg_color = COLOR_WHITE, int rpt = 1, int max_len = -1);
-void cct_showint(const int X, const int Y, const int num, const int bg_color = COLOR_BLACK, const int fg_color = COLOR_WHITE, const int rpt = 1);
+void cct_showch   (const int X, const int Y, const char ch, const int bg_color = COLOR_BLACK, const int fg_color = COLOR_WHITE, const int rpt = 1);
+void cct_showstr  (const int X, const int Y, const char *str, const int bg_color = COLOR_BLACK, const int fg_color = COLOR_WHITE, int rpt = 1, int max_len=-1);
+void cct_showint  (const int X, const int Y, const int num, const int bg_color = COLOR_BLACK, const int fg_color = COLOR_WHITE, const int rpt = 1);
 
-/* ä¸çª—å£å¤§å°æœ‰å…³çš„å‡½æ•° */
+/* Óë´°¿Ú´óĞ¡ÓĞ¹ØµÄº¯Êı */
 void cct_setconsoleborder(int set_cols, int set_lines, int set_buffer_cols = -1, int set_buffer_lines = -1);
 void cct_getconsoleborder(int &cols, int &lines, int &buffer_cols, int &buffer_lines);
 
-/* æœ‰æ ‡é¢˜æ æœ‰å…³çš„å‡½æ•° */
-void cct_getconsoletitle(char *title, int maxbuflen);
-void cct_setconsoletitle(const char *title);
+/* ÓĞ±êÌâÀ¸ÓĞ¹ØµÄº¯Êı */
+void cct_getconsoletitle (char *title, int maxbuflen);
+void cct_setconsoletitle (const char *title);
 
-/* ä¸é¼ æ ‡æ“ä½œæœ‰å…³çš„å‡½æ•° */
-void cct_enable_mouse(void);
-void cct_disable_mouse(void);
-int cct_read_keyboard_and_mouse(int &MX, int &MY, int &MAction, int &keycode1, int &keycode2);
+/* ÓëÊó±ê²Ù×÷ÓĞ¹ØµÄº¯Êı */
+void cct_enable_mouse           (void);
+void cct_disable_mouse          (void);
+int  cct_read_keyboard_and_mouse(int &MX, int &MY, int &MAction, int &keycode1, int &keycode2);
 
-/* ä¸å­—ä½“åŠå­—å·è®¾ç½®æœ‰å…³çš„å‡½æ•° */
-int cct_getfontinfo(void);
+/* Óë×ÖÌå¼°×ÖºÅÉèÖÃÓĞ¹ØµÄº¯Êı */
+int  cct_getfontinfo(void);
 void cct_setfontsize(const char *fontname, const int high, const int width = 0);
+

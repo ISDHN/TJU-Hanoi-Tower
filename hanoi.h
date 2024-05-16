@@ -20,6 +20,6 @@
 /*定义边框常量*/
 #define Height 40
 
-int menu();
+int ShowMenu();
 
-void hanoi_base(int choose);
+void Hanoi(int choose);

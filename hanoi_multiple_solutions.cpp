@@ -19,22 +19,22 @@ int speed;
 int stacks[3][10];
 int tops[3];
 
-void init();
-void time();
+void Initialize();
+void Wait();
 
-void push(char dst, int val);
-int pop(char src);
+void Push(char dst, int val);
+int Pop(char src);
 
-void input(char *src, char *dst, int *n, bool speed_controled);
-void output(char src, char dst, int val, int kind);
+void Input(char *src, char *dst, int *n, bool speed_controled);
+void Output(char src, char dst, int val, int kind);
 
-void printstacks();
-void print_tower();
+void PrintColumnHorizonal();
+void PrintColumnVertical();
 
-void init_tower();
-void init_disks(char src, int n);
-void move_disk(int kind, char src, char dst);
-void interaction();
+void BuildTower();
+void PlaceDisks(char src, int n);
+void MoveDisk(int kind, char src, char dst);
+void Interact();
 /***************************************************************************
   函数名称：
   功    能：
@@ -42,62 +42,62 @@ void interaction();
   返 回 值：
   说    明：
 ***************************************************************************/
-void hanoi_internal(int n, int output_kind, char src, char tmp, char dst) {
+void hanoiInternal(int n, int output_kind, char src, char tmp, char dst) {
 	bool last = n == 1;
 	if (!last) {
-		hanoi_internal(n - 1, output_kind, src, dst, tmp);
+		hanoiInternal(n - 1, output_kind, src, dst, tmp);
 	}
-	int val = pop(src);
-	push(dst, val);
-	output(src, dst, val, output_kind);
+	int val = Pop(src);
+	Push(dst, val);
+	Output(src, dst, val, output_kind);
 	if (!last) {
-		hanoi_internal(n - 1, output_kind, tmp, src, dst);
+		hanoiInternal(n - 1, output_kind, tmp, src, dst);
 	}
 }
 
-void hanoi_base(int choose) {
+void Hanoi(int choose) {
 	cout << endl
 		 << endl
 		 << endl;
-	init();
+	Initialize();
 	char src, dst;
 	int n = 0;
 	if (choose == 5) {
 		cct_cls();
-		init_tower();
+		BuildTower();
 		return;
 	}
-	input(&src, &dst, &n, choose == 4);
+	Input(&src, &dst, &n, choose == 4);
 	char med = 'A' + 'B' + 'C' - src - dst;
 	for (int i = n; i > 0; i--) {
-		push(src, i);
+		Push(src, i);
 	}
 	if (choose > 5) {
 		cct_cls();
-		init_tower();
-		init_disks(src, n);
+		BuildTower();
+		PlaceDisks(src, n);
 	}
 	if (choose < 5 || choose == 8) {
 		if (choose == 4) {
-			print_tower();
+			PrintColumnVertical();
 			cout << "Init: ";
-			printstacks();
+			PrintColumnHorizonal();
 			cout << endl;
 		}
-		hanoi_internal(n, choose, src, med, dst);
+		hanoiInternal(n, choose, src, med, dst);
 	} else {
 		if (choose == 7) {
 			int next = n & 1 ? dst : med;
-			int val = pop(src);
-			push(next, val);
-			output(src, next, val, choose);
+			int val = Pop(src);
+			Push(next, val);
+			Output(src, next, val, choose);
 		} else if (choose == 9) {
-			interaction();
+			Interact();
 		}
 	}
 }
 
-void init() {
+void Initialize() {
 	steps = 0;
 	for (int i = 0; i < 3; i++) {
 		memset(stacks[i], 0, 10);
@@ -105,7 +105,7 @@ void init() {
 	}
 }
 
-void time() {
+void Wait() {
 	if (speed == 0) {
 		while (_getch() != '\r')
 			;
@@ -114,19 +114,19 @@ void time() {
 	}
 }
 
-void push(char dst, int val) {
+void Push(char dst, int val) {
 	int index = dst - 'A';
 	stacks[index][tops[index]] = val;
 	tops[index]++;
 }
 
-int pop(char src) {
+int Pop(char src) {
 	int index = src - 'A';
 	tops[index]--;
 	return stacks[index][tops[index]];
 }
 
-void input(char *src, char *dst, int *n, bool speed_controled) {
+void Input(char *src, char *dst, int *n, bool speed_controled) {
 	cout << "Please input the height of Hanoi tower(1-10): " << endl;
 	cin >> *n;
 	while (cin.good() == 0 || *n < 0 || *n > 10) {
@@ -174,25 +174,25 @@ void input(char *src, char *dst, int *n, bool speed_controled) {
 	}
 }
 
-void output(char src, char dst, int val, int kind) {
+void Output(char src, char dst, int val, int kind) {
 	steps++;
 	if (kind == 1) {
 		cout << setw(2) << val << "# " << src << "-->" << dst << endl;
 	} else if (kind >= 2 && kind <= 4) {
 		if (kind == 4) {
-			print_tower();
+			PrintColumnVertical();
 		}
 		cout << "The" << setw(4) << steps << "th step(" << setw(2) << val << "#: " << src << "-->" << dst << ")";
 		if (kind >= 3) {
-			printstacks();
+			PrintColumnHorizonal();
 		}
 		cout << endl;
 	} else if (kind >= 7) {
-		move_disk(val, src, dst);
+		MoveDisk(val, src, dst);
 	}
 }
 
-void printstacks() {
+void PrintColumnHorizonal() {
 	for (int i = 0; i < 3; i++) {
 		cout << " " << char(i + 'A') << ":";
 		for (int j = 0; j < tops[i]; j++) {
@@ -205,8 +205,8 @@ void printstacks() {
 	}
 }
 
-void print_tower() {
-	time();
+void PrintColumnVertical() {
+	Wait();
 	cct_gotoxy(0, 0);
 	cct_cls();
 	cct_gotoxy(10, 13);
@@ -222,7 +222,7 @@ void print_tower() {
 	cct_gotoxy(10, 17);
 }
 
-void init_tower() {
+void BuildTower() {
 	for (int i = 0; i < 3; i++) {
 		cct_showch(GRAPHIC_X + i * TOWER_SEPA - 12, GRAPHIC_Y + 1, ' ', COLOR_HYELLOW, COLOR_HYELLOW, 25);
 		for (int j = 0; j <= HANOI_HEIGHT; j++) {
@@ -234,7 +234,7 @@ void init_tower() {
 	cct_setcolor(0, 7);
 }
 
-void init_disks(char src, int n) {
+void PlaceDisks(char src, int n) {
 	int Start = (src - 'A') * TOWER_SEPA;
 	for (int i = n; i > 0; i--) {
 		cct_showch(GRAPHIC_X + Start - i, GRAPHIC_Y + i - n, ' ', i, i, i * 2 + 1);
@@ -244,7 +244,7 @@ void init_disks(char src, int n) {
 	cct_setcolor(0, 7);
 }
 
-void move_disk(int kind, char src, char dst) {
+void MoveDisk(int kind, char src, char dst) {
 	int src_index = src - 'A';
 	int dst_index = dst - 'A';
 	int distance = dst - src;
@@ -281,7 +281,7 @@ void move_disk(int kind, char src, char dst) {
 	cct_setcolor(0, 7);
 }
 
-void interaction() {
+void Interact() {
 	while (true) {
 		cct_gotoxy(0, 20);
 		cin.clear();
@@ -312,9 +312,9 @@ void interaction() {
 
 		int dst_index = dst - 'A';
 		if (tops[dst_index] == 0 || stacks[src_index][tops[src_index] - 1] < stacks[dst_index][tops[dst_index] - 1]) {
-			int val = pop(src);
-			push(dst, val);
-			output(src, dst, val, 9);
+			int val = Pop(src);
+			Push(dst, val);
+			Output(src, dst, val, 9);
 		}
 	}
 }

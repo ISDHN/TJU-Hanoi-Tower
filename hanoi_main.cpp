@@ -29,13 +29,13 @@ int main() {
 	cct_cls();
 	while (true) {
 		cct_gotoxy(0, 0);
-		int choose = menu();
+		int choose = ShowMenu();
 		if (choose >= 0 && choose <= 9)
 			cout << choose;
 		if (choose == 0) {
 			return 0;
 		}
-		hanoi_base(choose);
+		Hanoi(choose);
 		cout << endl
 			 << "Press enter to continue.";
 		while (_getch() != '\r')
